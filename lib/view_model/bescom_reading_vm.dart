@@ -13,7 +13,7 @@ import '../utils/hive_utils.dart';
 import '../utils/session_key.dart';
 
 class BaseComReadingVM extends BaseViewModel{
-
+  String testt="Today";
   late BottomBarVM bottomBarVM;
   List<BescomMeter> bescomMeter=[];
   List<BescomReadings> bescomReadings=[];
