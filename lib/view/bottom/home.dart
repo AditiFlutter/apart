@@ -2,6 +2,7 @@ import 'package:apart/utils/appStrings.dart';
 import 'package:apart/utils/extensions/goto.dart';
 import 'package:apart/utils/extensions/on_stream.dart';
 import 'package:apart/utils/hive_utils.dart';
+import 'package:apart/view/basecom/basecom_reading.dart';
 import 'package:apart/view/manpower/manpower_cat_screen.dart';
 import 'package:apart/view/otp/otp_screen.dart';
 import 'package:apart/view_model/home_vm.dart';
@@ -279,7 +280,12 @@ class Home extends BaseWidget<HomeVM> {
                           Fluttertoast.showToast(msg:viewModel.categories[i].name.toString());
                           if(viewModel.categories[i].name.toString()=="Manpower"){
                             context.push(const ManpowerCatScreen());
-                          }else{
+                          }
+                          else if(viewModel.categories[i].name.toString()=="Bescom Readings"){
+                            context.push(const BasecomReading());
+
+                          }
+                          else{
                             Fluttertoast.showToast(msg:"coming soon");
                           }
 

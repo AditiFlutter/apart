@@ -528,74 +528,69 @@ class SignUp extends BaseWidget<SignupVM>{
 
 
                           const SizedBox(height:20,),
-                          InkWell(
-                            onTap: (){
+                          DropdownButtonFormField<String>(
 
+                            isExpanded: true,
+                            validator: (value){
+                              return value == null ? "Select Designation":null;
                             },
-                            child: DropdownButtonFormField<String>(
-
-                              isExpanded: true,
-                              validator: (value){
-                                return value == null ? "Select Designation":null;
-                              },
-                              decoration: InputDecoration(
-                                fillColor:colorLightOrange,
-                                filled:true,
-                                contentPadding:
-                                EdgeInsets.symmetric(vertical: 0, horizontal: ScreenUtil().setSp(8)),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(ScreenUtil()
-                                      .setSp(8)) //                 <--- border radius here
-                                  ),
-                                  borderSide:  const BorderSide(color: colorLightOrange),
+                            decoration: InputDecoration(
+                              fillColor:colorLightOrange,
+                              filled:true,
+                              contentPadding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: ScreenUtil().setSp(8)),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(ScreenUtil()
+                                    .setSp(8)) //                 <--- border radius here
                                 ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(ScreenUtil()
-                                      .setSp(8)) //                 <--- border radius here
-                                  ),
-                                  borderSide: const BorderSide(color: colorLightOrange),
+                                borderSide:  const BorderSide(color: colorLightOrange),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(ScreenUtil()
+                                    .setSp(8)) //                 <--- border radius here
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(ScreenUtil()
-                                      .setSp(8)) //                 <--- border radius here
-                                  ),
-                                  borderSide: const BorderSide(color: colorLightOrange),
+                                borderSide: const BorderSide(color: colorLightOrange),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(ScreenUtil()
+                                    .setSp(8)) //                 <--- border radius here
                                 ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(ScreenUtil()
-                                      .setSp(8)) //                 <--- border radius here
-                                  ),
-                                  borderSide: const BorderSide(color: Colors.red),
-                                ),),
-                              hint: Text("Select Designation",
-                                  style: GoogleFonts.poppins(
-                                      fontSize: ScreenUtil().setSp(11),
-                                      fontStyle: FontStyle.normal,
-                                      color:colorBlack,
-                                      fontWeight: FontWeight.w400)),
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: ScreenUtil().setSp(14),
-                                  color: colorBlack),
-                              items: viewModel.selectDesignationList.map((value)
-                              {
-                                return DropdownMenuItem<String>(
-                                  onTap:(){
-                                    viewModel.designationId=value.id.toString();
-                                  },
-                                  value: value.name,
-                                  child: Text(value.name.toString(),
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize:
-                                          ScreenUtil().setSp(12),
-                                          color: colorBlack)),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {
-                              },
-                            ),
+                                borderSide: const BorderSide(color: colorLightOrange),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(ScreenUtil()
+                                    .setSp(8)) //                 <--- border radius here
+                                ),
+                                borderSide: const BorderSide(color: Colors.red),
+                              ),),
+                            hint: Text("Select Designation",
+                                style: GoogleFonts.poppins(
+                                    fontSize: ScreenUtil().setSp(11),
+                                    fontStyle: FontStyle.normal,
+                                    color:colorBlack,
+                                    fontWeight: FontWeight.w400)),
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w400,
+                                fontSize: ScreenUtil().setSp(14),
+                                color: colorBlack),
+                            items: viewModel.selectDesignationList.map((value)
+                            {
+                              return DropdownMenuItem<String>(
+                                onTap:(){
+                                  viewModel.designationId=value.id.toString();
+                                },
+                                value: value.name,
+                                child: Text(value.name.toString(),
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize:
+                                        ScreenUtil().setSp(12),
+                                        color: colorBlack)),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                            },
                           ),
                           const SizedBox(height:20,),
 

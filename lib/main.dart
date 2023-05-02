@@ -3,6 +3,7 @@ import 'package:apart/utils/hive_utils.dart';
 import 'package:apart/view/manpower/ViewModel/manpower_cat_vm.dart';
 import 'package:apart/view/manpower/manpower_shift_data.dart';
 import 'package:apart/view/splash/splash_screen.dart';
+import 'package:apart/view_model/bescom_reading_vm.dart';
 import 'package:apart/view_model/bootom_vm.dart';
 import 'package:apart/view_model/calendra_vm.dart';
 import 'package:apart/view_model/categories_vm.dart';
@@ -36,6 +37,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => ManpowerShiftDataVM()),
         ChangeNotifierProvider(create: (context) => ManpowerWorkersDataVM()),
         ChangeNotifierProvider(create: (context) => OTPVM()),
+        ChangeNotifierProvider(create: (context) => BaseComReadingVM()),
 
 
       ],
