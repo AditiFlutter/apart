@@ -16,7 +16,6 @@ class ManpowerShiftData extends BaseWidget<ManpowerShiftDataVM> {
     var size = MediaQuery.of(context).size;
     final double itemWidth = size.width / 2;
     final double itemHeight = itemWidth-10;
-
     return  StreamBuilder<String>(
       stream: viewModel.myVariableStream,
         initialData: viewModel.shiftstatus,
@@ -37,7 +36,7 @@ class ManpowerShiftData extends BaseWidget<ManpowerShiftDataVM> {
             extendBody:true,
             backgroundColor:Colors.transparent,
             appBar: MyAppBar(
-              title:"${viewModel.catname}",
+              title:viewModel.catname,
               backgroundColor:Colors.transparent,
               actions: [
                 Padding(

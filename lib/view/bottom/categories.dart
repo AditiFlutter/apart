@@ -49,7 +49,7 @@ class Categories extends BaseWidget<CateogoriesVM>{
                 child: GridView.count(
                   crossAxisCount:2,
                   shrinkWrap: true,
-                  physics: ScrollPhysics(),
+                  physics: const ScrollPhysics(),
                   childAspectRatio: (itemWidth / itemHeight),
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,

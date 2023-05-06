@@ -24,7 +24,7 @@ class WaterReadingVM extends BaseViewModel{
   String todate="Today";
   String fromdate="Today";
   final apiDateFormat = DateFormat('yyyy-MM-dd');
-  String meterId="0",meterTypeId="";
+  String meterId="",meterTypeId="";
   // Method to update myVariable
 
   // Dispose the StreamController when no longer needed
@@ -118,7 +118,8 @@ class WaterReadingVM extends BaseViewModel{
     if( meterTypeId.toString()=="2")
       {
         waterMeter.clear();
-        waterReadings.clear();
+        // waterReadings.clear();
+        getBescomReadingData();
         notifyListeners();
 
       }else{

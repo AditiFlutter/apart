@@ -71,7 +71,6 @@ class WaterReading extends BaseWidget<WaterReadingVM> {
                               children: [
                                 Container(
                                   alignment: Alignment.topCenter,
-
                                   child: const Text("From Date",textScaleFactor: 1,
                                       style: TextStyle(color:colorTheme,decoration:TextDecoration.underline,
                                         fontSize: 14, fontWeight: FontWeight.w800,)),
@@ -208,7 +207,6 @@ class WaterReading extends BaseWidget<WaterReadingVM> {
                       onTap:(){
                         viewModel.meterTypeId=value.id.toString();
                         viewModel.onchange();
-                        // value.name.toString()=="WTP final Meter"?viewModel.waterMeter.clear():viewModel.getBescomReading();
 
                       },
                       value: value.id.toString(),
@@ -349,42 +347,45 @@ class WaterReading extends BaseWidget<WaterReadingVM> {
                                       ),
                                     ),
                                   ),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                          flex: 2,
-                                          child: Padding(
-                                            padding: EdgeInsets.only(left: ScreenUtil()
-                                                .setSp(30)),
-                                            child: Text("METER NO :",
-                                                style: GoogleFonts.poppins(
-                                                    fontSize: ScreenUtil()
-                                                        .setSp(12),
+                                  Visibility(
+                                    visible:category.meterNo==null?false:true,
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                            flex: 2,
+                                            child: Padding(
+                                              padding: EdgeInsets.only(left: ScreenUtil()
+                                                  .setSp(30)),
+                                              child: Text("METER NO :",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: ScreenUtil()
+                                                          .setSp(12),
+                                                      color: colorBlack,
+                                                      fontWeight:
+                                                      FontWeight.w300)),
+                                            )),
+                                        Text(":  ",style: GoogleFonts.poppins(
+                                            fontSize:
+                                            ScreenUtil().setSp(12),
+                                            color: colorBlack,
+                                            fontWeight:
+                                            FontWeight.w600)),
+                                        Expanded(
+                                          flex: 3,
+                                          child:  Text.rich(TextSpan(children: <TextSpan>[
+                                            TextSpan(
+                                                text:category.meterNo,
+                                                style:GoogleFonts.poppins(
+                                                    fontSize:
+                                                    ScreenUtil().setSp(12),
                                                     color: colorBlack,
                                                     fontWeight:
-                                                    FontWeight.w300)),
-                                          )),
-                                      Text(":  ",style: GoogleFonts.poppins(
-                                          fontSize:
-                                          ScreenUtil().setSp(12),
-                                          color: colorBlack,
-                                          fontWeight:
-                                          FontWeight.w600)),
-                                      Expanded(
-                                        flex: 3,
-                                        child:  Text.rich(TextSpan(children: <TextSpan>[
-                                          TextSpan(
-                                              text:category.meterNo,
-                                              style:GoogleFonts.poppins(
-                                                  fontSize:
-                                                  ScreenUtil().setSp(12),
-                                                  color: colorBlack,
-                                                  fontWeight:
-                                                  FontWeight.w600)),
-                                        ])),
-                                      ),
-                                    ],
+                                                    FontWeight.w600)),
+                                          ])),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   SizedBox(
                                     height: ScreenUtil().setSp(5),
