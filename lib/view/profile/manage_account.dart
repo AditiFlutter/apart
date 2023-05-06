@@ -246,6 +246,7 @@ class ManageAccount extends BaseWidget<ManageAcVM> {
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: TextFormField(
                   textAlign: TextAlign.start,
+                  enabled: false,
 
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.emailAddress,
@@ -268,12 +269,7 @@ class ManageAccount extends BaseWidget<ManageAcVM> {
                   decoration: InputDecoration(
                     fillColor: colorLightOrange,
                     filled: true,
-                    suffixIcon: InkWell(
-                        onTap: () {},
-                        child: const Icon(
-                          Icons.mode_edit_outline_outlined,
-                          color: colorTheme,
-                        )),
+
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                           Radius.circular(ScreenUtil().setSp(
@@ -419,6 +415,7 @@ class ManageAccount extends BaseWidget<ManageAcVM> {
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.done,
+                  enabled: false,
 
                   style: GoogleFonts.poppins(
                       fontSize: ScreenUtil().setSp(14),
@@ -437,12 +434,7 @@ class ManageAccount extends BaseWidget<ManageAcVM> {
                   decoration: InputDecoration(
                     fillColor: colorLightOrange,
                     filled: true,
-                    suffixIcon: InkWell(
-                        onTap: () {},
-                        child: const Icon(
-                          Icons.mode_edit_outline_outlined,
-                          color: colorTheme,
-                        )),
+
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                           Radius.circular(ScreenUtil().setSp(
@@ -567,16 +559,16 @@ class ManageAccount extends BaseWidget<ManageAcVM> {
               Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: IntlPhoneField(
+                    initialValue: "+91",
+                   enabled: false,
 
-                    initialCountryCode: viewModel.countryCode,
+                   // initialCountryCode: "95",
                     style: const TextStyle(
                         color: colorText, fontSize: 15, letterSpacing: 1.5),
                     textAlign: TextAlign.start,
                     decoration:  InputDecoration(
-                      suffixIcon: const Icon(
-                        Icons.mode_edit_outline_outlined,
-                        color: colorTheme,
-                      ),
+
+
                       fillColor: colorLightOrange,
                       filled: true,
                       hintText: viewModel.profileVM.profilemodel.user!.phone.toString(),
