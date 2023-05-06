@@ -23,10 +23,12 @@ class ManpowerWorkersDataVM extends BaseViewModel{
   String apartmentid= "";
   late ManpowerShiftDataVM manpowerShiftDataVM;
   String subsubcategoryId="";
+  String subSubCategoryName= "";
   @override
   initView() {
 
     manpowerShiftDataVM = context.read<ManpowerShiftDataVM>();
+    subSubCategoryName= manpowerShiftDataVM.subSubCategoryName.toString();
     apartmentid= HiveUtils.getSession<String>(SessionKey.apartmentid,defaultValue: "");
     subsubcategoryId= HiveUtils.getSession<String>(SessionKey.apartmentid,defaultValue: "");
 

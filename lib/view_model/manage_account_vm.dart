@@ -152,5 +152,4 @@ class ManageAcVM extends BaseViewModel{
 
   }
 
-
 }

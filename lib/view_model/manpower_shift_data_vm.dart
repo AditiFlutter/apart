@@ -22,6 +22,7 @@ class ManpowerShiftDataVM extends BaseViewModel{
   String catname= "";
   String apartmentid= "";
   String subsubcategoryId="";
+  String subSubCategoryName="";
   final _myVariableController = StreamController<String>.broadcast();
   Stream<String> get myVariableStream => _myVariableController.stream;
   late ManpowerCatVm manpowerCatVm;

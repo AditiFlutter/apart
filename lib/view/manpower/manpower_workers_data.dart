@@ -55,9 +55,9 @@ class ManpowerWorkersData extends BaseWidget<ManpowerWorkersDataVM> {
               children: [
                 Container(
                   width: itemWidth,
-                  child: const Padding(
+                  child:  Padding(
                     padding: EdgeInsets.fromLTRB(8, 8, 8, 10),
-                    child: Text("Security Officer",softWrap:true,
+                    child: Text(viewModel.subSubCategoryName.toString(),softWrap:true,
                       overflow: TextOverflow.ellipsis,textAlign:TextAlign.start,maxLines: 2,
                       style: TextStyle(
                         color:colorBlue,

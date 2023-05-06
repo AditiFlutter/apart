@@ -325,6 +325,7 @@ class ManpowerShiftData extends BaseWidget<ManpowerShiftDataVM> {
                               onTap: () {
                                // Fluttertoast.showToast(msg:viewModel.manpowerShifDataList[i].designationId.toString());
                                 viewModel.subsubcategoryId=viewModel.manpowerShifDataList[i].subcategoryId.toString();
+                                viewModel.subSubCategoryName=viewModel.manpowerShifDataList[i].subcategoryName.toString();
                                 context.push(const ManpowerWorkersData());
 
                               },
