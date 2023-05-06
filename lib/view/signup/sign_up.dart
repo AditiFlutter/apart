@@ -144,7 +144,7 @@ class SignUp extends BaseWidget<SignupVM>{
                             validator: (value){
                               return  Validator.validateFormField(
                                   value!,
-                                  strErrorName,
+                                  lastName,
                                   strErrorInvalidUserName,
                                   Constants.NORMAL_VALIDATION);
                             },
@@ -262,8 +262,8 @@ class SignUp extends BaseWidget<SignupVM>{
                             validator: (value){
                               return  Validator.validateFormField(
                                   value!,
-                                  strErrorName,
-                                  strErrorInvalidUserName,
+                                  strEmptyPassword,
+                                  strErrorInvalidPassword,
                                   Constants.NORMAL_VALIDATION);
                             },
                             onChanged: (String? newValue) {
@@ -330,7 +330,7 @@ class SignUp extends BaseWidget<SignupVM>{
                             child: DropdownButtonFormField<String>(
                               isExpanded: true,
                               validator: (value){
-                                return value == null ? "Select City":null;
+                                return value == null ? "City is required":null;
                               },
                               decoration: InputDecoration(
                                 fillColor:colorLightOrange,
@@ -403,7 +403,7 @@ class SignUp extends BaseWidget<SignupVM>{
                             child: DropdownButtonFormField<String>(
                               isExpanded: true,
                               validator: (value){
-                                return value == null ? "Select Apartment":null;
+                                return value == null ? "Apartment is required":null;
                               },
                               decoration: InputDecoration(
                                 fillColor:colorLightOrange,
@@ -482,8 +482,8 @@ class SignUp extends BaseWidget<SignupVM>{
                             validator: (value){
                               return  Validator.validateFormField(
                                   value!,
-                                  strErrorName,
-                                  strErrorInvalidUserName,
+                                  strErrorEmptyAddress,
+                                  strInvalidAddress,
                                   Constants.NORMAL_VALIDATION);
                             },
                             onChanged: (String? newValue) {
@@ -532,7 +532,7 @@ class SignUp extends BaseWidget<SignupVM>{
 
                             isExpanded: true,
                             validator: (value){
-                              return value == null ? "Select Designation":null;
+                              return value == null ? "Designation is required":null;
                             },
                             decoration: InputDecoration(
                               fillColor:colorLightOrange,
@@ -612,13 +612,10 @@ class SignUp extends BaseWidget<SignupVM>{
               children: [
                 RectangleThemeButton(text:"Signup",onTap:(){
                   viewModel.submitRegistration();
-                 // context.pushReplacement(const BottomNavigation());
-                  // viewModel.goHomePage();
                 },),
                 const SizedBox(height:5,),
                 InkWell(
                   onTap:(){
-
                     context.pushReplacement(const Login());
                   },
                   child: Row(

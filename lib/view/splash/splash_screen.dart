@@ -11,13 +11,27 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends StateMVC<SplashScreen> {
+class _SplashScreenState extends StateMVC<SplashScreen> with SingleTickerProviderStateMixin {
   SplashController? splashController;
+
 
   _SplashScreenState() : super(SplashController()) {
     splashController = controller as SplashController?;
   }
+  AnimationController ? animationController;
+  Animation<double>? animation;
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+        vsync: this, duration: Duration(seconds: 2));
+    animation =
+    CurvedAnimation(parent: animationController!, curve: Curves.easeOut);
 
+    animation?.addListener(() => setState(() {}));
+    animationController?.forward();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +53,8 @@ class _SplashScreenState extends StateMVC<SplashScreen> {
               alignment: Alignment.center,
               child: Image.asset(
                 "assets/png/logo1.png",
-                height: 220,
+                width: animation!.value * 250,
+                height: animation!.value * 250,
               )),
           const Align(
             alignment:Alignment.bottomCenter,

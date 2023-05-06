@@ -124,22 +124,4 @@ class SignupVM extends BaseViewModel{
     }
   }
 
-
-//
-  // void goToRegister() {
-  //   if(formKey.currentState!.validate()){
-  //     call(path: "register", onSuccess: (statusCode, data) {
-  //       context.pushReplacement(Login());
-  //     },method: Method.post,params: {
-  //       "name":nameController.text,
-  //       "country":countryName,
-  //       "phone":phoneNumber.text,
-  //       "email":emailController.text,
-  //       "password":passwordController.text,
-  //       "firebase_token":passwordController.text,
-  //     });
-  //   }else{
-  //     autoValidate = AutovalidateMode.always;
-  //   }
-  // }
 }

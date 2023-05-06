@@ -15,6 +15,7 @@ import 'package:apart/view_model/otp_vm.dart';
 
 import 'package:apart/view_model/profile_vm.dart';
 import 'package:apart/view_model/signup_vm.dart';
+import 'package:apart/view_model/water_reading_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,6 +39,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => ManpowerWorkersDataVM()),
         ChangeNotifierProvider(create: (context) => OTPVM()),
         ChangeNotifierProvider(create: (context) => BaseComReadingVM()),
+        ChangeNotifierProvider(create: (context) => WaterReadingVM()),
 
 
       ],

@@ -119,7 +119,7 @@ class Login extends BaseWidget<LoginVM>{
                               ),
                               contentPadding:
                               EdgeInsets.only(left: ScreenUtil().setWidth(10)),
-                              hintText: 'Id',
+                              hintText: 'Email',
                               hintStyle: GoogleFonts.poppins(
                                   fontSize: ScreenUtil().setSp(14),
                                   fontStyle: FontStyle.italic,
