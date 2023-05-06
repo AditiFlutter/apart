@@ -47,7 +47,6 @@ class ManpowerShiftDataVM extends BaseViewModel{
    // getWorkershiftData();
     manpowerCatVm = context.read<ManpowerCatVm>();
     manpowerSubCatId= manpowerCatVm.manpowerSubCatId.toString();
-
     catname= HiveUtils.getSession<String>(SessionKey.catid,defaultValue: "");
     apartmentid= HiveUtils.getSession<String>(SessionKey.apartmentid,defaultValue: "");
     updateMyVariable('1');

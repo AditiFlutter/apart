@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:apart/model/SelectApartmentModel.dart';
 import 'package:apart/model/SelectDesignationtModel.dart';
 import 'package:apart/utils/extensions/goto.dart';
@@ -7,7 +6,6 @@ import 'package:apart/view/login/login_screen.dart';
 import 'package:apart/view_model/base_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 import '../model/SelectCityModel.dart';
 
 class SignupVM extends BaseViewModel{
