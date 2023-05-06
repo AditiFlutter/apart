@@ -1,3 +1,5 @@
+import 'package:apart/utils/extensions/goto.dart';
+import 'package:apart/view/profile/manage_account.dart';
 import 'package:apart/view_model/profile_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,260 +40,143 @@ class Profile extends BaseWidget<ProfileVM> {
             children: [
               Stack(
                 children: [
-                  viewModel.imageFile== null ? Container(
-                    width: 100,
-                    height: 100,
+                  viewModel.profilemodel.user!.avatar.toString().isNotEmpty ? Container(
+                    width: 120,
+                    height: 120,
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border:Border.all(color:colorTheme),
                         color:colorWhite,
-                        image: const DecorationImage(
+                        image:DecorationImage(
                             fit: BoxFit.fill,
-                            image:AssetImage("assets/png/profile.png"))),
+                            image:NetworkImage(viewModel.profilemodel.user!.avatar.toString()))),
                   ):CircleAvatar(
                     radius: 60.0,
-                    backgroundImage:Image.file(viewModel.imageFile!,fit:BoxFit.contain,).image,),
-                  Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: InkWell(
-                        onTap: (){
-                        },
-                        child: Container(
-                          height: 34,
-                          width: 34,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color:colorTheme,
-                          ),
-                          child: const Center(child: Icon(Icons.mode_edit_outline_outlined,color:colorWhite,)),
-
-                        ),
-                      )),
+                  //  Image.file(viewModel.imageFile!,fit:BoxFit.contain,).image,),
+              backgroundImage: AssetImage("assets/png/profile.png")),
+                  // Positioned(
+                  //     bottom: 0,
+                  //     right: 0,
+                  //     child: InkWell(
+                  //       onTap: (){
+                  //       },
+                  //       child: Container(
+                  //         height: 34,
+                  //         width: 34,
+                  //         decoration: const BoxDecoration(
+                  //           shape: BoxShape.circle,
+                  //           color:colorTheme,
+                  //         ),
+                  //         child: const Center(child: Icon(Icons.mode_edit_outline_outlined,color:colorWhite,)),
+                  //
+                  //       ),
+                  //     )),
                 ],
               ),
-              const SizedBox(width:25,),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                      Radius.circular(
-                          ScreenUtil().setSp(10))),
-                ),
-                child: Container(
-                  width: ScreenUtil().screenWidth,
-                  padding: EdgeInsets.only(top: ScreenUtil().setSp(12),bottom: ScreenUtil().setSp(12)),
-                  decoration: BoxDecoration(
-                    color: colorWhite,
-                    borderRadius: BorderRadius.all(
-                        Radius.circular(
-                            ScreenUtil().setSp(10))),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                              flex: 2,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: ScreenUtil()
-                                    .setSp(30)),
-                                child: Text("Receiver",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: ScreenUtil()
-                                            .setSp(12),
-                                        color: colorBlack,
-                                        fontWeight:
-                                        FontWeight.w300)),
-                              )),
-                          Text(":  ",style: GoogleFonts.poppins(
-                              fontSize:
-                              ScreenUtil().setSp(12),
-                              color: colorBlack,
-                              fontWeight:
-                              FontWeight.w600)),
-                          Expanded(
-                            flex: 3,
-                            child:  Text.rich(TextSpan(children: <TextSpan>[
-                              TextSpan(
-                                  text:"Code"": ",
-                                  style:GoogleFonts.poppins(
-                                      fontSize:
-                                      ScreenUtil().setSp(12),
-                                      color: colorBlack,
-                                      fontWeight:
-                                      FontWeight.w600)),
-                              TextSpan(
-                                  text:"type",
-                                  style: GoogleFonts.poppins(
-                                      fontSize:
-                                      ScreenUtil().setSp(12),
-                                      color: colorBlack,
-                                      fontWeight:
-                                      FontWeight.w600)),
-                            ])),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: ScreenUtil().setSp(5),
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                              flex: 2,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: ScreenUtil().setSp(30)),
-                                child: Text("Payer",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: ScreenUtil()
-                                            .setSp(12),
-                                        color: colorBlack,
-                                        fontWeight:
-                                        FontWeight.w300)),
-                              )),
-                          Text(":  ",style: GoogleFonts.poppins(
-                              fontSize:
-                              ScreenUtil().setSp(12),
-                              color: colorBlack,
-                              fontWeight:
-                              FontWeight.w600)),
-                          Expanded(
-                            flex: 3,
-                            child: Text("name",
-                                style: GoogleFonts.poppins(
-                                    fontSize:
-                                    ScreenUtil().setSp(12),
-                                    color: colorBlack,
-                                    fontWeight:
-                                    FontWeight.w600)),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: ScreenUtil().setSp(5),
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                              flex: 2,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: ScreenUtil().setSp(30)),
-                                child: Text("Network",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: ScreenUtil()
-                                            .setSp(12),
-                                        color: colorBlack,
-                                        fontWeight:
-                                        FontWeight.w300)),
-                              )),
-                          Text(":  ",style: GoogleFonts.poppins(
-                              fontSize:
-                              ScreenUtil().setSp(12),
-                              color: colorBlack,
-                              fontWeight:
-                              FontWeight.w600)),
-                          Expanded(
-                            flex: 3,
-                            child: Text("RN+",
-                                style: GoogleFonts.poppins(
-                                    fontSize:
-                                    ScreenUtil().setSp(12),
-                                    color: colorBlack,
-                                    fontWeight:
-                                    FontWeight.w600)),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: ScreenUtil().setSp(5),
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                              flex: 2,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: ScreenUtil().setSp(30)),
-                                child: Text("Membership",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: ScreenUtil()
-                                            .setSp(12),
-                                        color: colorBlack,
-                                        fontWeight:
-                                        FontWeight.w300)),
-                              )),
-                          Text(":  ",style: GoogleFonts.poppins(
-                              fontSize:
-                              ScreenUtil().setSp(12),
-                              color: colorBlack,
-                              fontWeight:
-                              FontWeight.w600)),
-                          Expanded(
-                            flex: 3,
-                            child: Text("159289655",
-                                style: GoogleFonts.poppins(
-                                    fontSize:
-                                    ScreenUtil().setSp(12),
-                                    color: colorBlack,
-                                    fontWeight:
-                                    FontWeight.w600)),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: ScreenUtil().setSp(5),
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                              flex: 2,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: ScreenUtil().setSp(30)),
-                                child: Text("Valid from",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: ScreenUtil()
-                                            .setSp(12),
-                                        color: colorBlack,
-                                        fontWeight:
-                                        FontWeight.w300)),
-                              )),
-                          Text(":  ",style: GoogleFonts.poppins(
-                              fontSize:
-                              ScreenUtil().setSp(12),
-                              color: colorBlack,
-                              fontWeight:
-                              FontWeight.w600)),
-                          Expanded(
-                            flex: 3,
-                            child: Text("cardExpiry",
-                                style: GoogleFonts.poppins(
-                                    fontSize:
-                                    ScreenUtil().setSp(12),
-                                    color: colorBlack,
-                                    fontWeight:
-                                    FontWeight.w600)),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+              const SizedBox(width:30,),
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                 Row(
+                   crossAxisAlignment: CrossAxisAlignment.center,
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     Container(
+                                height: 40,
+                                width: 25,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  color:Colors.white,
+                                  image: const DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image:AssetImage("assets/png/batch.jpg"))
+                                ),
+                              ),
+                     SizedBox(width: 10,),
+                     Text(viewModel.profilemodel.user!.designation.toString(),
+                         style: GoogleFonts.poppins(
+                             fontSize: ScreenUtil()
+                                 .setSp(18),
+                             color: colorg,
+                             fontWeight:
+                             FontWeight.w600)),
+                     SizedBox(width: 15,),
+                   ],
+                 ),
+                  //
+                  // Text(viewModel.profilemodel.user!.name.toString(),
+                  //     style: GoogleFonts.poppins(
+                  //         fontSize: ScreenUtil()
+                  //             .setSp(18),
+                  //         color: colorg,
+                  //         fontWeight:
+                  //         FontWeight.w600)),
+
+
+
+
+                ],
               ),
+
+              Column(
+                mainAxisAlignment:MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize:MainAxisSize.min,
+                children: [
+                  SizedBox(height: 20,),
+                  ProfileListTile(onTap: () {
+                    context.push(const ManageAccount());
+                  }, text: 'Manage Profile', img:'assets/svg/manage_account.svg',),
+                  Container(
+                    height:1,
+                    margin: const EdgeInsets.only(left: 15),
+                    color:colorLightOrange,
+                  ),
+                  ProfileListTile(onTap: () {
+                    //context.push(const ManageAccount());
+                  }, text: 'FAQ', img:'assets/svg/order.svg',),
+                  Container(
+                    height:1,
+                    margin: const EdgeInsets.only(left: 15),
+                    color:colorLightOrange,
+                  ),
+                  ProfileListTile(onTap: () {
+                    //context.push(const ManageAccount());
+                  }, text: 'Help Center', img:'assets/svg/help.svg',),
+                  Container(
+                    height:1,
+                    margin: const EdgeInsets.only(left: 15),
+                    color:colorLightOrange,
+                  ),
+                  ProfileListTile(onTap: () {
+                    //context.push(const ManageAccount());
+                  }, text: 'Privacy Policy', img:'assets/svg/help.svg',),
+                  Container(
+                    height:1,
+                    margin: const EdgeInsets.only(left: 15),
+                    color:colorLightOrange,
+                  ),
+
+
+
+                ],
+              ),
+
+
+
+
               Container(
-                height:50,
                 margin: EdgeInsets.only(
-                  top: ScreenUtil().setSp(20),
+                  top: ScreenUtil().setSp(50),
                   bottom: ScreenUtil().setSp(20),
                   left: ScreenUtil().setSp(15),
                   right: ScreenUtil().setSp(15),
                 ),
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor:MaterialStateProperty.all<Color>(colorTheme),
+                      backgroundColor:MaterialStateProperty.all<Color>(Colors.white),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
@@ -311,14 +196,24 @@ class Profile extends BaseWidget<ProfileVM> {
                         mainAxisAlignment:MainAxisAlignment.center,
                         crossAxisAlignment:CrossAxisAlignment.center,
                         children: [
-                          Icon(Icons.logout,color:colorWhite,),
+                          Container(
+                            height: 34,
+                            width: 34,
+                            decoration:  BoxDecoration(
+                                shape: BoxShape.circle,
+                                color:colorWhite,
+                                border:Border.all(color:colorTheme)
+                            ),
+                            child: const Center(child: Icon(Icons.arrow_forward,color:colorTheme,)),
+
+                          ),
                           const SizedBox(width:10,),
 
                           Text("Logout",
                               style: GoogleFonts.poppins(
                                   fontSize:
                                   16,
-                                  color:colorWhite,
+                                  color:colorTheme,
                                   fontWeight: FontWeight.w600)),
                         ],
                       ),

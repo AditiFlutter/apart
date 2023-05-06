@@ -1,7 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.systappart.apart">
+
     <uses-permission android:name="android.permission.INTERNET"/>
+    <queries>
+        <package android:name="com.facebook.katana" />
+    </queries>
+    <queries>
+        <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
+    </queries>
    <application
         android:label="apart"
         android:usesCleartextTraffic="true"
@@ -34,5 +41,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <activity
+           android:name="com.yalantis.ucrop.UCropActivity"
+           android:screenOrientation="fullSensor"
+           android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+           tools:ignore="MissingClass" />
     </application>
 </manifest>

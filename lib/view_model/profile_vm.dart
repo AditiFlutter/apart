@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:apart/Constant/app_colors.dart';
 import 'package:apart/constant/Toasty.dart';
+import 'package:apart/model/ProfileModel.dart';
 import 'package:apart/view/login/login_screen.dart';
 import 'package:apart/view_model/base_vm.dart';
 import 'package:apart/view_model/bootom_vm.dart';
@@ -15,11 +16,13 @@ import 'package:apart/utils/extensions/goto.dart';
 
 class ProfileVM extends BaseViewModel{
   File? imageFile;
+  late profileModel profilemodel;
 
   late BottomBarVM bottomBarVM;
 
   @override
   initView() {
+    getProfileData();
     bottomBarVM = context.read<BottomBarVM>();
     return super.initView();
   }
@@ -61,6 +64,16 @@ class ProfileVM extends BaseViewModel{
       HiveUtils.addSession(SessionKey.isLoggedIn, false);
       HiveUtils.clear();
       context.pushAndRemoveUntil(const Login());
+      notifyListeners();
+    },method: Method.get,isShowLoader: true);
+  }
+
+  void getProfileData() {
+    call(path: "profile", onSuccess: (statusCode, data) {
+      Map object = jsonDecode(data);
+       profilemodel = profileModel.fromJson(object['data']);
+      //print("nameeee"+profilemodel.user!.name.toString());
+
       notifyListeners();
     },method: Method.get,isShowLoader: true);
   }

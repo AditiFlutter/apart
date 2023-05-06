@@ -55,7 +55,7 @@ class OTPVM extends BaseViewModel{
         HiveUtils.addSession(SessionKey.token, object['data']['access_token'].toString());
         HiveUtils.addSession(SessionKey.apartmentid,object['data']['user']['apartment'][0]['id'].toString());
         HiveUtils.addSession(SessionKey.designtionid,object['data']['user']['designation']['id'].toString());
-        Fluttertoast.showToast(msg: object['data']['access_token'].toString());
+      //  Fluttertoast.showToast(msg: object['data']['access_token'].toString());
         context.pushReplacement(const BottomNavigation());
       },method: Method.post,params: {
         "otp":loginotp.toString(),

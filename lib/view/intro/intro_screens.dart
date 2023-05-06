@@ -61,11 +61,11 @@ class _IntroScreenState extends StateMVC<IntroScreen> with TickerProviderStateMi
                     Container(
                       width: double.infinity,
                       height: double.infinity,
-                      decoration:  const BoxDecoration(
+                      decoration:const BoxDecoration(
                           gradient:LinearGradient(
                               begin: Alignment.topRight,
                               end: Alignment.bottomLeft,
-                              colors: [colorTheme,colorWhite,colorLeafGreen]
+                              colors: [colorTheme,colorWhite,colorWhite]
                           )
                       ),
                     ),
@@ -136,11 +136,11 @@ class _IntroScreenState extends StateMVC<IntroScreen> with TickerProviderStateMi
                     Container(
                       width: double.infinity,
                       height: double.infinity,
-                      decoration:  const BoxDecoration(
+                      decoration:const BoxDecoration(
                           gradient:LinearGradient(
                               begin: Alignment.topRight,
                               end: Alignment.bottomLeft,
-                              colors: [colorTheme,colorWhite,colorLeafGreen]
+                              colors: [colorTheme,colorWhite,colorWhite]
                           )
                       ),
                     ),
@@ -211,11 +211,11 @@ class _IntroScreenState extends StateMVC<IntroScreen> with TickerProviderStateMi
                     Container(
                       width: double.infinity,
                       height: double.infinity,
-                      decoration:  const BoxDecoration(
+                      decoration:const BoxDecoration(
                           gradient:LinearGradient(
                               begin: Alignment.topRight,
                               end: Alignment.bottomLeft,
-                              colors: [colorTheme,colorWhite,colorLeafGreen]
+                              colors: [colorTheme,colorWhite,colorWhite]
                           )
                       ),
                     ),

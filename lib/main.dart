@@ -9,6 +9,7 @@ import 'package:apart/view_model/calendra_vm.dart';
 import 'package:apart/view_model/categories_vm.dart';
 import 'package:apart/view_model/home_vm.dart';
 import 'package:apart/view_model/login_vm.dart';
+import 'package:apart/view_model/manage_account_vm.dart';
 import 'package:apart/view_model/manpower_shift_data_vm.dart';
 import 'package:apart/view_model/manpower_workers_data_vm.dart';
 import 'package:apart/view_model/otp_vm.dart';
@@ -40,6 +41,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => OTPVM()),
         ChangeNotifierProvider(create: (context) => BaseComReadingVM()),
         ChangeNotifierProvider(create: (context) => WaterReadingVM()),
+        ChangeNotifierProvider(create: (context) => ManageAcVM()),
 
 
       ],

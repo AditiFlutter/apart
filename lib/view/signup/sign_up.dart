@@ -330,7 +330,7 @@ class SignUp extends BaseWidget<SignupVM>{
                             child: DropdownButtonFormField<String>(
                               isExpanded: true,
                               validator: (value){
-                                return value == null ? "City is required":null;
+                                return value == null ? "The city field is required":null;
                               },
                               decoration: InputDecoration(
                                 fillColor:colorLightOrange,
@@ -403,7 +403,7 @@ class SignUp extends BaseWidget<SignupVM>{
                             child: DropdownButtonFormField<String>(
                               isExpanded: true,
                               validator: (value){
-                                return value == null ? "Apartment is required":null;
+                                return value == null ? "The apartment field is required":null;
                               },
                               decoration: InputDecoration(
                                 fillColor:colorLightOrange,
@@ -532,7 +532,7 @@ class SignUp extends BaseWidget<SignupVM>{
 
                             isExpanded: true,
                             validator: (value){
-                              return value == null ? "Designation is required":null;
+                              return value == null ? "The designation field is required":null;
                             },
                             decoration: InputDecoration(
                               fillColor:colorLightOrange,
